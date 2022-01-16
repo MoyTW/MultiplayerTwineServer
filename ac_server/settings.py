@@ -29,7 +29,6 @@ ALLOWED_HOSTS = ['multiplayer-twine-server.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-  'gameserver',
   'channels',
   'corsheaders',
   'django.contrib.admin',
@@ -38,6 +37,7 @@ INSTALLED_APPS = [
   'django.contrib.sessions',
   'django.contrib.messages',
   'django.contrib.staticfiles',
+  'gameserver',
 ]
 
 MIDDLEWARE = [
