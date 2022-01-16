@@ -55,6 +55,8 @@ MIDDLEWARE = [
 # TODO: Depending on how you host this, you may not need any of this (if you put it all under the same domain)
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
+    'https://v6p9d9t4.ssl.hwcdn.net',
+    'https://itch.zone',
 ]
 
 ROOT_URLCONF = 'ac_server.urls'
@@ -137,7 +139,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [os.environ.get('REDIS_URL', ('127.0.0.1', 6379))],
         },
     },
 }
