@@ -146,7 +146,7 @@ CHANNEL_LAYERS = {
 
 # jankity ya
 if DEBUG:
-  ALLOWED_HOSTS = ['127.0.0.1']
+  ALLOWED_HOSTS = []
 if not DEBUG:
   import django_heroku
   django_heroku.settings(locals())
