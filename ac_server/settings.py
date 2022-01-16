@@ -151,6 +151,7 @@ if not DEBUG:
   import django_heroku
   django_heroku.settings(locals())
   # Deployment warnings
-  SECURE_SSL_REDIRECT = True
+  # This creates a redirect loop, gonna come back to it later
+  # SECURE_SSL_REDIRECT = True
   SESSION_COOKIE_SECURE = True
   CSRF_COOKIE_SECURE = True
