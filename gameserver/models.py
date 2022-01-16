@@ -3,7 +3,7 @@ from django.db import models
 class WebsocketMessage(models.Model):
   session_id = models.UUIDField(editable=False)
   client_id = models.UUIDField(editable=False)
-  timestamp = models.IntegerField(editable=False)
+  timestamp = models.BigIntegerField(editable=False)
   json = models.JSONField()
 
   class Meta:
@@ -16,7 +16,7 @@ class GameSave(models.Model):
   # It seems django doesn't do composite primary keys, so instead I must add a constraint
   session_id = models.UUIDField(editable=False)
   client_id = models.UUIDField(editable=False)
-  timestamp = models.IntegerField(editable=False)
+  timestamp = models.BigIntegerField(editable=False)
   serialized_save = models.TextField(editable=False)
 
   class Meta:
