@@ -23,7 +23,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = os.environ['DEBUG'] == 'True'
 
-ALLOWED_HOSTS = ['mutiplayer-twine-server.herokuapp.com']
+ALLOWED_HOSTS = ['multiplayer-twine-server.herokuapp.com']
 
 
 # Application definition
@@ -144,6 +144,9 @@ CHANNEL_LAYERS = {
     },
 }
 
+# jankity ya
+if DEBUG:
+  ALLOWED_HOSTS = ['127.0.0.1']
 if not DEBUG:
   import django_heroku
   django_heroku.settings(locals())
