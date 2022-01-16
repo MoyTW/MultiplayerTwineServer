@@ -52,11 +52,6 @@ MIDDLEWARE = [
   'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Deployment warnings
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-
 # TODO: Depending on how you host this, you may not need any of this (if you put it all under the same domain)
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
@@ -152,3 +147,7 @@ CHANNEL_LAYERS = {
 if not DEBUG:
   import django_heroku
   django_heroku.settings(locals())
+  # Deployment warnings
+  SECURE_SSL_REDIRECT = True
+  SESSION_COOKIE_SECURE = True
+  CSRF_COOKIE_SECURE = True
