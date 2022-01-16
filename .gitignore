@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+
+# venv
+.venv
+venv/
+ENV/
+
+# Distribution / packaging
+bin/
+lib/
+lib64
+lib64/
+share/
+
+# dev
+db.sqlite3
