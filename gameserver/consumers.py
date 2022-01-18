@@ -1,11 +1,19 @@
 import json
 import time
 from asgiref.sync import async_to_sync
+from django.core.exceptions import SuspiciousOperation
 from channels.generic.websocket import WebsocketConsumer
+from ac_server.settings import CORS_ALLOWED_ORIGINS
 from gameserver.models import GameSave, WebsocketMessage
 
 class ChatConsumer(WebsocketConsumer):
   def connect(self):
+    # This is a hacky, incomplete replacement for CORS (as CORS does not work with websockets)
+    # Possibly make this middleware, if you make more consumers
+    origin = next((h for h in self.scope['headers'] if h[0].decode().lower()=='origin'), None)
+    if (origin is None or not origin[1].decode() in CORS_ALLOWED_ORIGINS):
+      raise SuspiciousOperation(f'Origin {origin} not allowed!')
+
     self.session_id = self.scope['url_route']['kwargs']['session_id']
     self.session_id_group_name = f'channel_{self.session_id}'
 
@@ -61,6 +69,5 @@ class ChatConsumer(WebsocketConsumer):
       )
 
   def chat_message(self, event):
-    print(event)
     data_str = json.dumps(event['message'])
     self.send(text_data=data_str)
