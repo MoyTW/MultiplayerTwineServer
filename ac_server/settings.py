@@ -52,9 +52,7 @@ MIDDLEWARE = [
   'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# TODO: Depending on how you host this, you may not need any of this (if you put it all under the same domain)
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8080',
     'https://v6p9d9t4.ssl.hwcdn.net',
     'https://itch.zone',
 ]
@@ -147,6 +145,7 @@ CHANNEL_LAYERS = {
 # jankity ya
 if DEBUG:
   ALLOWED_HOSTS = []
+  CORS_ALLOWED_ORIGINS = ['http://localhost:8080']
 if not DEBUG:
   import django_heroku
   django_heroku.settings(locals())
