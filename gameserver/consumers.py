@@ -41,10 +41,9 @@ class ChatConsumer(WebsocketConsumer):
     if text_data_map['type'] == 'CATCH_UP':
       try:
         save = GameSave.objects.get(session_id__exact=self.session_id, client_id__exact=text_data_map['clientId'])
-        messages = WebsocketMessage.objects.filter(session_id__exact=self.session_id, timestamp__gt=save.timestamp)
       except GameSave.DoesNotExist:
         save = None
-        messages = WebsocketMessage.objects.filter(session_id__exact=self.session_id, timestamp__gt=text_data_map['catchupStartMs'])
+      messages = WebsocketMessage.objects.filter(session_id__exact=self.session_id, timestamp__gt=text_data_map['catchupStartMs'])
       # TODO: this is a little farcical tbh
       content = {'type': 'CATCH_UP', 'messages': [json.loads(m.json) for m in messages], 'server_timestamp_ms': server_ms}
       if save:
