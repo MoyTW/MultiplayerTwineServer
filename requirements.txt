@@ -4,7 +4,7 @@ async-timeout==4.0.2
 attrs==21.4.0
 autobahn==21.11.1
 Automat==20.2.0
-backports.zoneinfo==0.2.1
+backports.zoneinfo==0.2.1;python_version<"3.9"
 cffi==1.15.0
 channels==3.0.4
 channels-redis==3.3.1

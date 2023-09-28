@@ -55,6 +55,7 @@ MIDDLEWARE = [
 # Hey, do you wanna hear something funny? Browsers don't give a fig 'bout CORS with regards to websockets!
 CORS_ALLOWED_ORIGINS = [
     'https://v6p9d9t4.ssl.hwcdn.net',
+    'https://html-classic.itch.zone',
     'https://itch.zone',
 ]
 
