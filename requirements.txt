@@ -18,6 +18,7 @@ hiredis==3.3.0
 hyperlink==21.0.0
 idna==3.3
 incremental==21.3.0
+legacy-cgi==2.6.3
 msgpack==1.0.3
 psycopg-binary==3.2.11
 psycopg2==2.9.11
@@ -34,4 +35,4 @@ txaio==21.2.1
 typing_extensions==4.0.1
 tzdata==2021.5
 whitenoise==5.3.0
-zope.interface==5.4.0
+zope.interface==8.0.1
