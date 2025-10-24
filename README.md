@@ -7,3 +7,9 @@ When installing:
 
 Deployment:
 Apparently just push to Heroku master...?
+
+OK IF YOU GET THE SELF-SIGNED CERTIFICATE SSL ISSUE
+apparently it's 'cuz Heroku forces TLS on but the redis kvs thing they use uses self-signed certs
+so you need to add to the REDIS_URL ?ssl_cert_reqs=none to the REDIS_URL
+but I think they rotate that! so later on I need to force it in the config resolution I think
+aaaaaaaaa I wasted so much time on this
