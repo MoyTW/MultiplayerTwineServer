@@ -29,6 +29,7 @@ ALLOWED_HOSTS = ['multiplayer-twine-server.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+  'daphne',
   'gameserver',
   'channels',
   'corsheaders',
@@ -77,7 +78,7 @@ TEMPLATES = [
   },
 ]
 
-WSGI_APPLICATION = 'ac_server.wsgi.application'
+ASGI_APPLICATION = 'ac_server.asgi.application'
 
 
 # Database
