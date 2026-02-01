@@ -5,6 +5,9 @@ When installing:
 3) DL the twee extension for VSCode
 4) Get & run docker on port 6397 (docker run -p 6379:6379 -d redis)
 
+Running locally:
+1) Use ./runserver.sh
+
 Deployment:
 Apparently just push to Heroku master...?
 

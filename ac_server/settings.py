@@ -25,6 +25,10 @@ DEBUG = os.environ['DEBUG'] == 'True'
 
 ALLOWED_HOSTS = ['multiplayer-twine-server.herokuapp.com']
 
+REDIS_HOST: str = os.environ.get('REDIS_URL', '127.0.0.1:6379')
+if '?ssl_cert_reqs=none' not in REDIS_HOST and not DEBUG:
+  REDIS_HOST = REDIS_HOST + '?ssl_cert_reqs=none'
+
 
 # Application definition
 
@@ -140,7 +144,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [os.environ.get('REDIS_URL', ('127.0.0.1', 6379))],
+            "hosts": [REDIS_HOST],
         },
     },
 }
